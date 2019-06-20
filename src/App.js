@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
+import BrowsePage from './containers/BrowsePage/BrowsePage';
 
 function App() {
   return (
     <div>
-      wkwk
+      Hi i am App
+      <BrowsePage />
     </div>
   );
 }
