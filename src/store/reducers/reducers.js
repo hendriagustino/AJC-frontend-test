@@ -3382,26 +3382,21 @@ const initialState = {
       "sort": null,
       "first": true,
       "size": 0,
-      "number": 0
-
+      "number": 0,
+      "productDetailPageId": null
 };
 
 const reducer = ( state = initialState, action ) => {
-    // switch ( action.type ) {
-    //     case actionTypes.ADD_INGREDIENT:
-    //         return {
-    //                 ...state
-    //             };
+    switch ( action.type ) {
+        case actionTypes.ON_PRODUCT_CLICKED:
+            return {
+                    ...state,
+                    productDetailPageId: action.id
+                };
 
-    //     case actionTypes.REMOVE_INGREDIENT:
-    //         return {
-    //             ...state
-    //         };
-
-    //     default:
-    //         return state;
-    // }
-    return state;
+        default:
+            return state;
+    }
 };
 
 export default reducer;
