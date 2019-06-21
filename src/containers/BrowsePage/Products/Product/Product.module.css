@@ -1,0 +1,24 @@
+.Product{
+    width:33%;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 10px;
+    margin: 5px auto;
+    box-sizing: border-box;
+    margin-right: 4px;
+    float: right;
+}
+
+.Product:hover{
+    box-shadow: 8px 7px 17px grey;
+}
+
+.Logo{
+    width:'70px'; 
+    height:'30px';
+}
+
+.imgStyling{
+    width:'70px';
+    height:'30px'
+}
