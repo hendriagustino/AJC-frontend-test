@@ -1,19 +1,4 @@
-import React, {Component} from 'react';
-import classes from './ProductDetailPage.module.css';
-import { connect } from 'react-redux';
-
-class ProductDetailPage extends Component{
-    
-    render(){
-        
-        const result = (
-            this.props.content
-            .filter((plan, index, props)=> {
-              return plan.plan.id === this.props.productDetailPageId;
-            })
-        );
-
-        //jadi gmn ya. aku kekny mau tarok property baru di redux
+//jadi gmn ya. aku kekny mau tarok property baru di redux
         //jd ntr select ny kyk bisa di batasi gt, kalo udh ad 3 data yg di "push"/"concat" ke dalam property redux
         // ntr gak bs klik select lg 
         // langsung aja ga usah find index laah
@@ -47,7 +32,26 @@ class ProductDetailPage extends Component{
         // eksekusi aja jangan banyaj baca hahahah
         //haha ok deh. besok pagi aku lanjut lg. 
         // //  okwak tidur tidur
+
+import React, {Component} from 'react';
+import classes from './ProductDetailPage.module.css';
+import { connect } from 'react-redux';
+
+class ProductDetailPage extends Component{
+    
+    render(){
         
+        console.log('before filter',typeof this.props.selected);
+
+        const result = (
+            this.props.content
+            .filter((plan, index, props)=> {
+              return plan.plan.id === this.props.productDetailPageId;
+            })
+        );
+        
+        console.log('After filter', result);
+
         const newResult = result.map((plan,i) => {
             
             const medicalFeatures = (plan.plan.planBenefitCategories.MedicalFeatures.map( (med,i)=>{
@@ -90,7 +94,8 @@ class ProductDetailPage extends Component{
 const mapStateToProps = state =>{
     return{
         content : state.content,
-        productDetailPageId: state.productDetailPageId
+        productDetailPageId: state.productDetailPageId,
+        selected: state.selected
     }
 }
 

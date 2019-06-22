@@ -7,8 +7,25 @@
     box-sizing: border-box;
     margin-right: 4px;
     float: right;
+    height: 190px;
 }
 
 .Product:hover{
     box-shadow: 8px 7px 17px grey;
+}
+
+button{
+    float:right;
+    color: gray;
+    width:100px;
+    height:20px;
+    border:0.5px solid lavender;
+    border-radius: 1.8px;
+    margin-right: 3px;
+}
+
+button:hover{
+    float: right;
+    color:white;
+    background-color: darkgrey;
 }

@@ -3383,7 +3383,8 @@ const initialState = {
       "first": true,
       "size": 0,
       "number": 0,
-      "productDetailPageId": null
+      "productDetailPageId": null,
+      "selected": ['5aca15c892450c050cad8424','586ec0fcc6eac0464bdd6335','5aca15c892450c050cad8413']
 };
 
 const reducer = ( state = initialState, action ) => {

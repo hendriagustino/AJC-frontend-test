@@ -16,9 +16,8 @@ class Products extends Component{
     render(){
 
         const mapPlan = this.props.content.map(planElement=>{
-            // const wkw = "kwk";
             return (
-                <div key={planElement.plan.id} onClick={()=>{console.log('ini pilih');this.handleClick(planElement.plan.id)}}>
+                <div key={planElement.plan.id}>
                     <Product
                         id={planElement.plan.id}
                         insuranceProviderId={planElement.insuranceProviderId}
@@ -26,15 +25,57 @@ class Products extends Component{
                         provider={planElement.plan.insuranceProviderName}
                         sumInsured={planElement.sumInsured}
                         premium={planElement.totalAmount.amount}
+                        clicked={this.handleClick}
                     />
                 </div>
             )
         });
+        
+        const selectedLength= this.props.selected.length;
 
+        const selectedPlanName1 = (
+            this.props.content.filter((plan)=> {
+              return plan.plan.id === this.props.selected[0];
+            })
+        );
+        
+        const selectedPlanName2 = (
+            this.props.content.filter((plan)=> {
+              return plan.plan.id === this.props.selected[1];
+            })
+        );
+
+        const selectedPlanName3 = (
+            this.props.content.filter((plan)=> {
+              return plan.plan.id === this.props.selected[2];
+            })
+        );
+
+        const mapSelectedProducts = ( 
+            selectedLength === 3 ? 
+                selectedPlanName1[0].plan.planName + ", " + selectedPlanName2[0].plan.planName + ", " + selectedPlanName3[0].plan.planName
+                : 
+                    (   selectedLength === 2 ? 
+                        selectedPlanName1[0].plan.planName + ", " + selectedPlanName2[0].plan.planName + ", " 
+                    :
+                        selectedPlanName1[0].plan.planName
+                    )
+            )
+        ;
+
+        
         return(
             <div>
                 <h1 className={classes.Title}>Products</h1>
                 
+                <h4 className={classes.Title} style={{color:'grey'}}>
+                    <span style={{color:'black'}}>
+                        Compare{" : "}
+                    </span>
+                    
+                    {mapSelectedProducts}
+                </h4>
+
                 {mapPlan}
             </div>
         );
@@ -43,7 +84,8 @@ class Products extends Component{
 
 const mapStateToProps = state =>{
     return{
-      content : state.content
+      content : state.content,
+      selected: state.selected
     }
 };
 
