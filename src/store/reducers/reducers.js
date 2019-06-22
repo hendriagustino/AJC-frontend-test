@@ -3384,7 +3384,7 @@ const initialState = {
       "size": 0,
       "number": 0,
       "productDetailPageId": null,
-      "selected": ['5aca15c892450c050cad8424','586ec0fcc6eac0464bdd6335','5aca15c892450c050cad8413']
+      "selected": ['5aca15c892450c050cad8424','586ec0fcc6eac0464bdd6335','586f4e84c6eac0464bddab5d']      
 };
 
 const reducer = ( state = initialState, action ) => {

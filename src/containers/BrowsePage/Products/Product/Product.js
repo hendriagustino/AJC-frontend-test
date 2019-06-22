@@ -7,7 +7,7 @@ import RELIGARE_HEALTH from './../../../../assets/Religare.png';
 
 const Product = (props) =>{
 
-    const imgSrc = { HDFC_ERGO, RELIANCE_GENERAL, RELIGARE_HEALTH };
+    const imgSrc = {HDFC_ERGO, RELIANCE_GENERAL, RELIGARE_HEALTH};
 
     return(
 
@@ -25,8 +25,8 @@ const Product = (props) =>{
                 Premium: ${props.premium}
             </p>
 
-            <button onClick={()=>props.clicked(props.id)} className={classes.oii}>More Info</button>
-            <button className={classes.oii}>Compare</button>
+            <div onClick={()=>props.clicked(props.id)} className={classes.Button}>More Info</div>
+            <div className={classes.Button}>Compare</div>
 
         </div>
     );
