@@ -49,7 +49,7 @@ class ProductDetailPage extends Component{
 
         const result = (
             this.props.content
-            .filter((plan, index, props)=> {
+            .filter((plan)=> {
               return plan.plan.id === this.props.productDetailPageId;
             })
         );

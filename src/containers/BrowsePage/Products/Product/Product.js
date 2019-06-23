@@ -25,8 +25,8 @@ const Product = (props) =>{
                 Premium: ${props.premium}
             </p>
 
-            <div onClick={()=>props.clicked(props.id)} className={classes.Button}>More Info</div>
-            <div className={classes.Button}>Compare</div>
+            <div onClick={()=>props.moreInfoClicked(props.id)} className={classes.Button}>More Info</div>
+            <div onClick={()=>props.compareClicked(props.id)} className={classes.Button}>Compare</div>
 
         </div>
     );

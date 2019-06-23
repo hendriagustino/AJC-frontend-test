@@ -3384,16 +3384,24 @@ const initialState = {
       "size": 0,
       "number": 0,
       "productDetailPageId": null,
-      "selected": ['5aca15c892450c050cad8424','586ec0fcc6eac0464bdd6335','586f4e84c6eac0464bddab5d']      
+      // "selected": ['5aca15c892450c050cad8424','586ec0fcc6eac0464bdd6335','586f4e84c6eac0464bddab5d']
+      // "selected": ['5aca15c892450c050cad8424','586f4e84c6eac0464bddab5d']
+      // "selected": ['586ec0fcc6eac0464bdd6335']
+      "selected" : []
 };
 
 const reducer = ( state = initialState, action ) => {
     switch ( action.type ) {
         case actionTypes.ON_PRODUCT_CLICKED:
             return {
-                    ...state,
-                    productDetailPageId: action.id
+                  ...state,
+                  productDetailPageId: action.id
                 };
+        case actionTypes.ON_COMPARE_CLICKED:
+            return{
+                  ...state,
+                  selected: state.selected.concat(action.id)
+            };
 
         default:
             return state;

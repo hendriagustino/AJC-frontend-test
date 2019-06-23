@@ -6,3 +6,10 @@ export const onProductClicked = (id) =>{
         id: id
     }
 }
+
+export const onCompareClicked = (id) =>{
+    return{
+        type: actionTypes.ON_COMPARE_CLICKED,
+        id: id
+    }
+}

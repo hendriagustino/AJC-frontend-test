@@ -3,14 +3,20 @@ import classes from './Products.module.css';
 import { connect } from 'react-redux';
 
 import {withRouter} from 'react-router';
+import {NavLink} from 'react-router-dom';
+
 import Product from './Product/Product';
 import * as actions from './../../../store/actions/actions';
 
 class Products extends Component{
     
-    handleClick = (id) =>{
+    handleMoreInfoClicked = (id) =>{
         this.props.onProductClicked(id);
         this.props.history.push('/productdetailpage');
+    }
+
+    handleCompareClicked = (id) =>{
+        this.props.onCompareClicked(id);
     }
 
     render(){
@@ -25,7 +31,8 @@ class Products extends Component{
                         provider={planElement.plan.insuranceProviderName}
                         sumInsured={planElement.sumInsured}
                         premium={planElement.totalAmount.amount}
-                        clicked={this.handleClick}
+                        moreInfoClicked={this.handleMoreInfoClicked}
+                        compareClicked={this.handleCompareClicked}
                     />
                 </div>
             )
@@ -56,9 +63,11 @@ class Products extends Component{
                 selectedPlanName1[0].plan.planName + ", " + selectedPlanName2[0].plan.planName + ", " + selectedPlanName3[0].plan.planName
                 : 
                     (   selectedLength === 2 ? 
-                        selectedPlanName1[0].plan.planName + ", " + selectedPlanName2[0].plan.planName + ", " 
-                    :
-                        selectedPlanName1[0].plan.planName
+                        selectedPlanName1[0].plan.planName + ", " + selectedPlanName2[0].plan.planName
+                    :   
+                        selectedLength === 1 ? 
+                        selectedPlanName1[0].plan.planName :  
+                        <p>You havenot selected any plan.</p>
                     )
             )
         ;
@@ -69,10 +78,17 @@ class Products extends Component{
                 <h1 className={classes.Title}>Products</h1>
                 
                 <h4 className={classes.Title} style={{color:'grey'}}>
-                    <span style={{color:'black'}}>
+                    {/* <span style={{color:'black'}}>
                         Compare{" : "}
-                    </span>
-                    
+                    </span> */}
+                    {/* <button style={{width: '90px', height: '23px', margin: 'auto'}}>Compare Plan</button> */}
+                    <NavLink 
+                        to={"/comparepage"}
+                    >
+                        Compare Plan
+                    </NavLink>
+
+                    <br/>
                     {mapSelectedProducts}
                 </h4>
 
@@ -91,7 +107,8 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps = dispatch =>{
     return{
-        onProductClicked : (id) => dispatch(actions.onProductClicked(id))
+        onProductClicked : (id) => dispatch(actions.onProductClicked(id)),
+        onCompareClicked : (id) => dispatch(actions.onCompareClicked(id))
     }
 }
 
