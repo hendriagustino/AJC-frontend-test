@@ -41,8 +41,6 @@ Go to [https://nodejs.org/en/download/](https://nodejs.org/en/download/) and fol
 
 ## INSTALL
 
-git@github.com:hendriagustino/insurance-coding-challenge.git
-
 `$ git clone git@github.com:hendriagustino/insurance-coding-challenge.git` <br>
 `$ cd insurance-coding-challenge` <br>
 `$ npm install`
