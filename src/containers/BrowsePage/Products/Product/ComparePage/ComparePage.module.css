@@ -1,0 +1,38 @@
+.Title{
+    text-align: center;
+}
+
+.Product{
+    width:33vw;
+    display: inline-block;
+    text-align: center;
+}
+
+.Product:hover{
+    width:33vw;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 12px 4px 30px grey;
+}
+
+.Product:hover p{
+    color: black;
+}
+
+.Product:hover span{
+    color: black;
+    font: bolder;
+}
+
+.SpanStyle{
+    text-transform: capitalize;
+    display: block;
+    font-size: 13px;
+    border: 1px solid white;
+    padding: 5px;
+    color: grey;
+    /* box-shadow: 0 0 1px lightgray; */
+    width: 25vw;
+    margin: auto;
+    margin-bottom: '5px';
+}

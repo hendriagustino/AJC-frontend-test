@@ -1,0 +1,21 @@
+.Title{
+    text-align: center;
+}
+
+.ProductDetail{
+    border: 1px solid #ccc;
+    width:50%;
+    margin: auto;
+    text-align: center;
+    box-shadow: 3px 3px 6px grey;
+}
+
+.SpanStyle{
+    text-transform: capitalize;
+    display: inline-block;
+    margin: 4px 8px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    color: rgb(53, 50, 47);
+    box-shadow: 0 0 1px grey;
+}
