@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# insurance-coding-challenge - Frontend
 
-## Available Scripts
+insurance-coding-challenge is basically a coding challenge project where I build the frontend of a small single page application based on mock data and assets provided. 
 
-In the project directory, you can run:
+**Insurance Coding Challenge Project** is an app that enable users to :
+* The Browse page where you can see section of List of products, section of Filters, section of Sorters
+  - For List of products section, each product should at least show the Logo of Insurance Provider, Plan Name,Insurance Provider Name, Sum Insured, Premium(totalAmount.amount).
+  - For Filters section, it should at least contain filter of Insurance Provider, Service Area Ids.
+  - For Sorters section, it should at least contain sorter of Premium(totalAmount.amount), Created At.
 
-### `npm start`
+* The Product detail page (PDP) where you can see the details of a product
+  - Besides the basic information of product displayed in the Browse page, it should at least show both Medical Features and Travel Features.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* The Compare page where you can see at most 3 products listed side by side for comparison. Their key details such as Premium, Sum Insured, Medical Features and Travel Features should be displayed in order for comparison.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+* Clicking on View Detail button on a product in Browse page should show the PDP page
+* Ticking a Compare checkbox on a product in Browse page should highlight the product, it should only allow maximum 3 products to be highlighted
+* Compare Plan button on the Browse page will be enabled when at least 2 products are highlighted, upon clicking the Compare Plan button should show the Compare page
+* Clicking on Back button on PDP should take the user to the Browse page
+* Clicking on Back button on Compare page should take the user to the Browse page
 
-### `npm test`
+## REQUIREMENTS
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For development, you will need to install `Node.js` on your environment.
 
-### `npm run build`
+#### Node installation on OS X
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Open the Terminal App and type brew install node.
+2. Wait while Homebrew helps you download and install all the needed files for you to use.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+After installing, you can check whether Node.js has been installed by typing `node-v` in terminal. Also to see if NPM is installed already, by typing `npm -v`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Node installation on Linux
 
-### `npm run eject`
+On terminal, type in : 
+`sudo apt-get install nodejs`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Node installation on Windows 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Go to [https://nodejs.org/en/download/](https://nodejs.org/en/download/) and follow all the steps to download.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## INSTALL
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`$ git clone git@github.com:hendriagustino/redditclone.git` <br>
+`$ cd redditclone` <br>
+`$ npm install`
 
-## Learn More
+# START 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+`$ npm start`
