@@ -14,7 +14,7 @@ class Products extends Component{
         this.props.onProductClicked(id);
         this.props.history.push('/productdetailpage');
     }
-
+    
     handleCompareClicked = (id) =>{
         this.props.onCompareClicked(id);
     }
@@ -50,26 +50,38 @@ class Products extends Component{
                 </div>
             )
         });
+
+        let ComparePlanButton = true;
+        if (selectedLength >1 ){
+            ComparePlanButton = false;
+        }
+
+        let CompareClearButton = true;
+        if (selectedLength > 0 ){
+            CompareClearButton = false;
+        }
         
         return(
             <>
                 <h1 className={classes.Title}>Products</h1>
                 
                 <h4 className={classes.Title} style={{color:'grey'}}>
-                    
-                    { selectedLength > 1 
-                        ?   
-                            <>
-                                <button>X</button>
-                                <NavLink to={"/comparepage"}>
-                                    Compare Plan
-                                </NavLink>
-                            </>
-                        : 
-                            null
-                    }
-                    
+                    <NavLink to={"/comparepage"}>
+                        <button disabled={ComparePlanButton} 
+                                className={classes.CompareButton}>
+                            Compare Plan
+                        </button>
+
+                    </NavLink>
+
+                    <button disabled={CompareClearButton} 
+                            className={classes.CrossMarkButton}
+                            onClick={this.props.onCompareClearClicked}>
+                                &#10006;
+                    </button>
+
                 </h4>
+
                 {mapPlan}
             </>
         );
@@ -86,7 +98,8 @@ const mapStateToProps = state =>{
 const mapDispatchToProps = dispatch =>{
     return{
         onProductClicked : (id) => dispatch(actions.onProductClicked(id)),
-        onCompareClicked : (id) => dispatch(actions.onCompareClicked(id))
+        onCompareClicked : (id) => dispatch(actions.onCompareClicked(id)),
+        onCompareClearClicked : () => dispatch(actions.onCompareClearClicked())
     }
 }
 

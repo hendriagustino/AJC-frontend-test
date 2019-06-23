@@ -10,6 +10,7 @@ class BrowsePage extends Component{
         return(
             <div>
               <Products/>
+              
               <Filters/>
               <Sorters/>
 

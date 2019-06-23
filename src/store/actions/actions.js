@@ -13,3 +13,9 @@ export const onCompareClicked = (id) =>{
         id: id
     }
 }
+
+export const onCompareClearClicked = () =>{
+    return{
+        type: actionTypes.ON_COMPARE_CLEAR_CLICKED
+    }
+}

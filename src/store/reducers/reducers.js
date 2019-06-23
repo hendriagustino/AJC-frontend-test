@@ -1,5 +1,4 @@
 import * as actionTypes from '../actions/actionTypes';
-import { bigIntLiteral } from '@babel/types';
 
 const initialState = {
     "content": [
@@ -3385,7 +3384,9 @@ const initialState = {
       "size": 0,
       "number": 0,
       "productDetailPageId": null,
-      "selected" : []
+      "selected" : [],
+      "filterInsuranceProvider": ['HDFC_ERGO'],
+      "filterServiceArea": []
 };
 
 const reducer = ( state = initialState, action ) => {
@@ -3395,8 +3396,8 @@ const reducer = ( state = initialState, action ) => {
                   ...state,
                   productDetailPageId: action.id
                 };
+
         case actionTypes.ON_COMPARE_CLICKED:
-                
             const newId = (state.selected.filter( key => {
                           return key === action.id}
                         ));
@@ -3407,10 +3408,18 @@ const reducer = ( state = initialState, action ) => {
             }
 
             if (newId.length === 0 ){
-              return {...state, selected: state.selected.concat(action.id)}
+              return {
+                ...state, 
+                selected: state.selected.concat(action.id)
+              }
             }
-
             break;
+
+        case actionTypes.ON_COMPARE_CLEAR_CLICKED:
+          return {
+                ...state,
+                selected: []
+              };
             
         default:
             return state;

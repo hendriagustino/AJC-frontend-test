@@ -39,7 +39,7 @@ const Product = (props) =>{
             </p>
 
             <button onClick={()=>props.moreInfoClicked(props.id)} className={classes.Button}>
-                More Info
+                View Detail
             </button>
 
             {compareButton}
