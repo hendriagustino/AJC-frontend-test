@@ -1,4 +1,4 @@
-# insurance-coding-challenge - Frontend
+# insurance-coding-challenge (Frontend)
 
 insurance-coding-challenge is basically a coding challenge project where I build the frontend of a small single page application based on mock data and assets provided. 
 
