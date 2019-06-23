@@ -9,25 +9,40 @@ const Product = (props) =>{
 
     const imgSrc = {HDFC_ERGO, RELIANCE_GENERAL, RELIGARE_HEALTH};
 
-    return(
+    let compareButton= (
+        <button disabled style={{cursor: 'not-allowed'}} onClick={()=>props.compareClicked(props.id)} className={classes.Button}>
+            Compare
+        </button>
+    );
 
-        <div className={classes.Product}> 
-        
+    if (props.selected.length < 3) {
+        compareButton = (
+            <button onClick={()=>props.compareClicked(props.id)} className={classes.Button}>
+                Compare
+            </button>
+        );
+    }
+
+    return(
+        <div className={classes.Product} style={props.compareProductClickedColor}> 
+
             <img src={imgSrc[props.insuranceProviderId]} 
                  alt={imgSrc[props.insuranceProviderId]} 
-                 style={{width:'70px',height:'30px'}}
+                 className={classes.ImgStyle}
             />
 
             <p><b>{props.planName}</b></p>
             <p>
                 Provider: {props.provider}<br/>
                 Sum Insured: ${props.sumInsured}<br/>
-                Premium: ${props.premium}
+                Premium: ${props.premium}<br/>
             </p>
 
-            <div onClick={()=>props.moreInfoClicked(props.id)} className={classes.Button}>More Info</div>
-            <div onClick={()=>props.compareClicked(props.id)} className={classes.Button}>Compare</div>
+            <button onClick={()=>props.moreInfoClicked(props.id)} className={classes.Button}>
+                More Info
+            </button>
 
+            {compareButton}
         </div>
     );
 }

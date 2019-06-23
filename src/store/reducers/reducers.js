@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
+import { bigIntLiteral } from '@babel/types';
 
 const initialState = {
     "content": [
@@ -3384,9 +3385,6 @@ const initialState = {
       "size": 0,
       "number": 0,
       "productDetailPageId": null,
-      // "selected": ['5aca15c892450c050cad8424','586ec0fcc6eac0464bdd6335','586f4e84c6eac0464bddab5d']
-      // "selected": ['5aca15c892450c050cad8424','586f4e84c6eac0464bddab5d']
-      // "selected": ['586ec0fcc6eac0464bdd6335']
       "selected" : []
 };
 
@@ -3398,11 +3396,22 @@ const reducer = ( state = initialState, action ) => {
                   productDetailPageId: action.id
                 };
         case actionTypes.ON_COMPARE_CLICKED:
-            return{
-                  ...state,
-                  selected: state.selected.concat(action.id)
-            };
+                
+            const newId = (state.selected.filter( key => {
+                          return key === action.id}
+                        ));
+                       
+            if( newId.length !== 0 ){
+              alert('ID has been inserted');
+              return state;
+            }
 
+            if (newId.length === 0 ){
+              return {...state, selected: state.selected.concat(action.id)}
+            }
+
+            break;
+            
         default:
             return state;
     }
