@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Products from './Products/Products';
 import Filters from './Filters/Filters';
-import Sorters from './Sorters/Sorters';
+// import Sorters from './Sorters/Sorters';
 
 
 class BrowsePage extends Component{    
@@ -12,7 +12,7 @@ class BrowsePage extends Component{
               <Products/>
               
               <Filters/>
-              <Sorters/>
+              {/* <Sorters/> */}
 
             </div>
         );

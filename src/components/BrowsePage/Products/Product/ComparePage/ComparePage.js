@@ -12,12 +12,15 @@ class ComparePage extends Component{
 
         const imgSrc = {HDFC_ERGO, RELIANCE_GENERAL, RELIGARE_HEALTH};
         
+        //mapping products in the state.content
         const mapSelectedPlans = this.props.selected.map( (selectedId,i)=>{
 
+            //return a list of max 3 product in state.content which have the same id when the user clicked
             const mapSelectedIds = this.props.content.filter((plan) => {
                             return plan.plan.id === selectedId;
                         }).map((plan,i) => {
-
+                            
+                            //deep mapping of MedicalFeatures array inside of this.props.content array
                             const medicalFeatures = (plan.plan.planBenefitCategories.MedicalFeatures.map( (med,i)=>{
                                 return(<span className={classes.SpanStyle} key={i}>
                                             {med.benefitName}
@@ -26,6 +29,7 @@ class ComparePage extends Component{
                                 )
                             );
 
+                            //deep mapping of TravelFeatures array inside of this.props.content array
                             const travelFeatures = (plan.plan.planBenefitCategories.TravelFeatures.map( (tra,i)=>{
                                 return(<span className={classes.SpanStyle} key={i}>
                                             {tra.benefitName}

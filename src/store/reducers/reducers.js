@@ -3385,8 +3385,8 @@ const initialState = {
       "number": 0,
       "productDetailPageId": null,
       "selected" : [],
-      "filterInsuranceProvider": ['HDFC_ERGO'],
-      "filterServiceArea": []
+      "filterInsuranceProvider": '',
+      "filterServiceAreaIds": ''
 };
 
 const reducer = ( state = initialState, action ) => {
@@ -3420,7 +3420,19 @@ const reducer = ( state = initialState, action ) => {
                 ...state,
                 selected: []
               };
-            
+
+        case actionTypes.ON_INSURANCE_PROVIDER_FILTER:
+          return{
+            ...state,
+            filterInsuranceProvider: action.name
+          }
+
+        case actionTypes.ON_SERVICE_AREA_IDS_FILTER:
+          return{
+            ...state,
+            filterServiceAreaIds: action.areaname
+          }
+          
         default:
             return state;
     }

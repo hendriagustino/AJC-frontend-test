@@ -12,6 +12,7 @@ class ProductDetailPage extends Component{
 
         const imgSrc = {HDFC_ERGO, RELIANCE_GENERAL, RELIGARE_HEALTH};
 
+        //filter out the whole state.content to return a single id which is the clicked product id
         const result = (
             this.props.content
             .filter((plan)=> {
@@ -21,6 +22,7 @@ class ProductDetailPage extends Component{
         
         const newResult = result.map((plan,i) => {
             
+            //deep mapping of MedicalFeatures array inside of this.props.content array mapping
             const medicalFeatures = (plan.plan.planBenefitCategories.MedicalFeatures.map( (med,i)=>{
                             return(<span className={classes.SpanStyle} key={i}>
                                         {med.benefitName}
@@ -28,6 +30,8 @@ class ProductDetailPage extends Component{
                         }
                     )
                 );
+
+            //deep mapping of TravelFeatures array inside of this.props.content array mapping
             const travelFeatures = (plan.plan.planBenefitCategories.TravelFeatures.map( (tra,i)=>{
                             return(<span className={classes.SpanStyle} key={i}>
                                         {tra.benefitName}
