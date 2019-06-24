@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import BrowsePage from './containers/BrowsePage/BrowsePage';
+import BrowsePage from './components/BrowsePage/BrowsePage';
 import {Route, Switch} from 'react-router-dom';
-import ProductDetailPage from './containers/BrowsePage/Products/Product/ProductDetailPage/ProductDetailPage';
-import ComparePage from './containers/BrowsePage/Products/Product/ComparePage/ComparePage';
+import ProductDetailPage from './components/BrowsePage/Products/Product/ProductDetailPage/ProductDetailPage';
+import ComparePage from './components/BrowsePage/Products/Product/ComparePage/ComparePage';
 
 function App() {
   return (
