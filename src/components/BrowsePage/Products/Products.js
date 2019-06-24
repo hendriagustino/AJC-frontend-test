@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import classes from './Products.module.css';
 
 import Product from './Product/Product';
-import * as actions from './../../../store/actions/actions';
+import * as actions from '../../../store/actions/actions';
 
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router';
@@ -23,8 +23,12 @@ class Products extends Component{
 
         const selectedLength= this.props.selected.length;
 
+        //mapping every single content of "Plan" inside of the Redux State
         const mapPlan = this.props.content.map(planElement=>{
 
+            //checking whether the id of this "Product" we are going to return is already
+            //selected by the user (clicked Compare Button). If so, we pass an addition 
+            //backgroundColor style to the Product so that it looks "Highlighted"
             const mapSelectedIds = this.props.selected.filter((selectedId) => {
                             return selectedId === planElement.plan.id});
             
@@ -51,11 +55,13 @@ class Products extends Component{
             )
         });
 
+        //logic for Compare Button is enabled when selected products is more than 1 (minimum 2)
         let ComparePlanButton = true;
         if (selectedLength >1 ){
             ComparePlanButton = false;
         }
 
+        //logic to disable Compare Clear Button if selected product is 0
         let CompareClearButton = true;
         if (selectedLength > 0 ){
             CompareClearButton = false;

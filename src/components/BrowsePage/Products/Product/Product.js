@@ -5,6 +5,8 @@ import HDFC_ERGO from './../../../../assets/HDFCErgo.png';
 import RELIANCE_GENERAL from './../../../../assets/RelianceGeneral.png';
 import RELIGARE_HEALTH from './../../../../assets/Religare.png';
 
+
+//presentational / stateless components which only return an UI of Product whenever receive needed Props to it
 const Product = (props) =>{
 
     const imgSrc = {HDFC_ERGO, RELIANCE_GENERAL, RELIGARE_HEALTH};
