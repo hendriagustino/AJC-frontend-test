@@ -7,7 +7,6 @@ import {withRouter} from 'react-router';
 import Product from '../Products/Product/Product';
 import * as actions from '../../../store/actions/actions'
 
-
 class Filters extends Component{
 
     handleMoreInfoClicked = (id) =>{
@@ -15,7 +14,9 @@ class Filters extends Component{
         this.props.history.push('/productdetailpage');
     }
 
-    handleCompareClicked = () =>{}
+    handleCompareClicked = (id) =>{
+        this.props.onCompareClicked(id);
+    }
 
     handleInsuranceProviderFilter = (e) => {
         this.props.onInsuranceProviderFilter(e.target.value);
@@ -61,8 +62,20 @@ class Filters extends Component{
                         }
                     )
                 );
-
+                
         const filterInsuranceProviderMappingResult = filterInsuranceProviderResult.map((planElement,i) => {
+            
+            //check whether the mapping based of filtering Insurance Provider Product's id belong to one 
+            //of the id inside state.selected array
+            //if yes, then pass in the style {backgroundColor: lightgray} to the Single Product
+            const mapSelectedIds = this.props.selected.filter((selectedId,plan) => {
+                return selectedId === planElement.plan.id});
+            
+            let compareProductClickedColor = null;
+            if(mapSelectedIds.length > 0 ){
+                compareProductClickedColor= {backgroundColor: 'lightGray'}
+            }
+
             return (<div key={planElement.plan.id}>
                         <Product
                             id={planElement.plan.id}
@@ -74,6 +87,7 @@ class Filters extends Component{
                             moreInfoClicked={this.handleMoreInfoClicked}
                             compareClicked={this.handleCompareClicked}
                             selected={this.props.selected}
+                            compareProductClickedColor={compareProductClickedColor}
                         />
                     </div>
                 );
@@ -86,8 +100,20 @@ class Filters extends Component{
                 return plan.plan.planEligibility.serviceAreaIds.toString() === this.props.filterServiceAreaIds;
             }
         );
-        
-        const filterServiceAreaIdsMappingResult = filterServiceAreaIdsResult.map((planElement,i) => {
+            
+            //check whether the mapping based of filtering Service Area Ids Product's id belong to one 
+            //of the id inside state.selected array
+            //if yes, then pass in the style {backgroundColor: lightgray} to the Single Product    
+            const filterServiceAreaIdsMappingResult = filterServiceAreaIdsResult.map((planElement,i) => {
+            
+            const mapSelectedIds2 = this.props.selected.filter((selectedId,plan) => {
+                return selectedId === planElement.plan.id});
+            
+            let compareProductClickedColor2 = null;
+            if(mapSelectedIds2.length > 0 ){
+                compareProductClickedColor2= {backgroundColor: 'lightGray'}
+            }
+
         return (<div key={planElement.plan.id}>
                 <Product
                     id={planElement.plan.id}
@@ -99,6 +125,7 @@ class Filters extends Component{
                     moreInfoClicked={this.handleMoreInfoClicked}
                     compareClicked={this.handleCompareClicked}
                     selected={this.props.selected}
+                    compareProductClickedColor={compareProductClickedColor2}
                 />
             </div>
             );
