@@ -132,30 +132,24 @@ class Filters extends Component{
         });
 
         return(
-            <div >
+            <div style={{height:'210vh'}}>
                 <h1 className={classes.Title}>Filters</h1>
-                
-                <p className={classes.Title}>By Insurance Provider</p>
 
+                <p className={classes.Title}><span style={{backgroundColor: 'lightgray'}}>By Insurance Provider</span></p>
                 <form style={{textAlign: 'center'}} onChange={this.handleInsuranceProviderFilter}>
                     <select>
-                        <option>---Select---</option>
                         {newPlanArray}
                     </select>
                 </form><br/>
-
                 {filterInsuranceProviderMappingResult}
                 
-                <p className={classes.Title}>By Service Area Ids</p>
+                <p className={classes.Title}><span style={{backgroundColor: 'lightgray'}}>By Service Area Ids</span></p>
                 <form style={{textAlign: 'center'}} onChange={this.handleServiceAreaIdsFilter}>
                     <select>
-                        <option>---Select---</option>
                         {newPlanArray2}
                     </select>
                 </form>
-
                 {filterServiceAreaIdsMappingResult}<br/>
-
             </div>
         );
     }
