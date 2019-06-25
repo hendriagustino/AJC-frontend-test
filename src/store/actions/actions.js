@@ -38,3 +38,17 @@ export const onServiceAreaIdsFilter = (areaname) =>{
         areaname: areaname
     }
 }
+
+export const onSortPremium = (sortpremiumvalue) =>{
+    return{
+        type: actionTypes.ON_SORT_PREMIUM,
+        sortpremiumvalue: sortpremiumvalue
+    }
+}
+
+export const onSortCreatedAt = (sortcreatedatvalue) =>{
+    return{
+        type: actionTypes.ON_SORT_CREATEDAT,
+        sortcreatedatvalue : sortcreatedatvalue
+    }
+}

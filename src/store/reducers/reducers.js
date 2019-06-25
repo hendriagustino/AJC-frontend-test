@@ -3385,8 +3385,10 @@ const initialState = {
       "number": 0,
       "productDetailPageId": null,
       "selected" : [],
-      "filterInsuranceProvider": '',
-      "filterServiceAreaIds": ''
+      "filterInsuranceProvider": 'HDFC_ERGO',
+      "filterServiceAreaIds": 'Asia',
+      "sortPremium": 'asc',
+      "sortCreatedAt": 'asc'
 };
 
 const reducer = ( state = initialState, action ) => {
@@ -3432,7 +3434,18 @@ const reducer = ( state = initialState, action ) => {
             ...state,
             filterServiceAreaIds: action.areaname
           }
-          
+
+        case actionTypes.ON_SORT_PREMIUM:
+          return{
+            ...state,
+            sortPremium: action.sortpremiumvalue
+          }
+
+        case actionTypes.ON_SORT_CREATEDAT:
+          return{
+            ...state,
+            sortCreatedAt: action.sortcreatedatvalue
+          }
         default:
             return state;
     }
