@@ -39,6 +39,7 @@ export const onServiceAreaIdsFilter = (areaname) =>{
     }
 }
 
+//action creator for Sorting Product based of Premium
 export const onSortPremium = (sortpremiumvalue) =>{
     return{
         type: actionTypes.ON_SORT_PREMIUM,
@@ -46,6 +47,7 @@ export const onSortPremium = (sortpremiumvalue) =>{
     }
 }
 
+//action creator for Sorting Product based of createdAt
 export const onSortCreatedAt = (sortcreatedatvalue) =>{
     return{
         type: actionTypes.ON_SORT_CREATEDAT,
