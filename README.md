@@ -23,6 +23,12 @@ insurance-coding-challenge is basically a coding challenge project where I build
 ## Product List Page
 ![Product_List.png](images/Product_List.png)
 
+## Compare Products Page
+![Compare_Page.png](images/Compare_Page.png)
+
+## Product Detail Page
+![Product_Detail.png](images/Product_Detail.png)
+
 ## REQUIREMENTS
 
 For development, you will need to install `Node.js` on your environment.
