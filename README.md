@@ -19,6 +19,10 @@ insurance-coding-challenge is basically a coding challenge project where I build
 * Clicking on Back button on PDP should take the user to the Browse page
 * Clicking on Back button on Compare page should take the user to the Browse page
 
+# Snapshots of Web App 
+## Product List Page
+![Product List.png](images/Product List.png)
+
 ## REQUIREMENTS
 
 For development, you will need to install `Node.js` on your environment.
